@@ -82,7 +82,7 @@
             <table id="table1" class="table" style="font-size:13px;">
                 <!-- 818191  c6c6d1-->
                 <thead style="background-color: #c6c6d1">
-                    <th colspan="4" class="w3-xlarge text-center w3-round-medium" style="font-family: monospace;">Task Posted </th>
+                    <th colspan="4" class="w3-xlarge text-center w3-round-medium" style="font-family: monospace;">Tasks Posted </th>
                 </thead>
                 <tr class="w3-large w3-text-brown text-center" style="font-family: serif;">
                     <th>Taskname</th>
@@ -111,7 +111,7 @@
                     @else       
                         <tr>
                             <th colspan="4" class="text-center w3-medium w3-text-red">
-                                <b> No Task Posted Found </b>
+                                <b> No Tasks Posted Found </b>
                             </th>
                         </tr>      
                     @endif
@@ -125,7 +125,7 @@
         <div class="table-responsive col-md-6 text-center">
             <table id="table2" class="table" style="font-size:13px;">
                 <thead style="background-color: #c6c6d1">
-                    <th colspan="4" class="w3-xlarge text-center w3-round-medium" style="font-family: monospace;">Task Completed </th>
+                    <th colspan="4" class="w3-xlarge text-center w3-round-medium" style="font-family: monospace;">Tasks Completed </th>
                 </thead>
                 <tr class="w3-large w3-text-brown text-center" style="font-family: serif;">
                     <th>Taskname</th>
@@ -154,7 +154,7 @@
                     @else       
                         <tr>
                             <th colspan="4" class="text-center w3-medium w3-text-red">
-                                <b> No Task Completed Yet </b>
+                                <b> No Tasks Completed Yet </b>
                             </th>
                         </tr>      
                     @endif
