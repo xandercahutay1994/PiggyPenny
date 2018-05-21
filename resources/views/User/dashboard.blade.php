@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style type="text/css">
-    #table a{
-        text-decoration: none
-    }
-</style>
-
 <!-- BUSINESS INDEX -->
 <div class="container" id="dashboard">
     <div class="row justify-content-center">
