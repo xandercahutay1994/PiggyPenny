@@ -2,6 +2,7 @@
 
 @section('content')
 <!-- BUSINESS INDEX -->
+<<<<<<< HEAD
 <style type="text/css">
     .loader{
         margin: 0;
@@ -19,6 +20,8 @@
 <div class="loader">
     <img src="{{ asset('loader/loader3.gif') }}">
 </div>
+=======
+>>>>>>> 41471d1b650a1ee710e9ce37dedf4dcb9f69fdaa
 <div class="container" id="dashboard">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -92,7 +95,11 @@
             <table id="table1" class="table" style="font-size:13px;">
                 <!-- 818191  c6c6d1-->
                 <thead style="background-color: #c6c6d1">
+<<<<<<< HEAD
                     <th colspan="4" class="w3-large text-center w3-round-medium" style="font-family: monospace;">Tasks Posted </th>
+=======
+                    <th colspan="4" class="w3-xlarge text-center w3-round-medium" style="font-family: monospace;">Tasks Posted </th>
+>>>>>>> 41471d1b650a1ee710e9ce37dedf4dcb9f69fdaa
                 </thead>
                 <tr class="w3-large w3-text-brown text-center" style="font-family: serif;">
                     <th>Taskname</th>
@@ -144,7 +151,7 @@
                     @else
                         <tr>
                             <th colspan="4" class="text-center w3-medium w3-text-red">
-                                <b> No Task Posted Found </b>
+                                <b> No Tasks Posted Found </b>
                             </th>
                         </tr>
                     @endif
@@ -158,7 +165,11 @@
         <div class="col-md-6 text-center">
             <table id="table2" class="table" style="font-size:13px;">
                 <thead style="background-color: #c6c6d1">
+<<<<<<< HEAD
                     <th colspan="4" class="w3-large text-center w3-round-medium" style="font-family: monospace;">Tasks Completed </th>
+=======
+                    <th colspan="4" class="w3-xlarge text-center w3-round-medium" style="font-family: monospace;">Tasks Completed </th>
+>>>>>>> 41471d1b650a1ee710e9ce37dedf4dcb9f69fdaa
                 </thead>
                 <tr class="w3-large w3-text-brown text-center" style="font-family: serif;">
                     <th>Taskname</th>
@@ -187,7 +198,11 @@
                     @else
                         <tr>
                             <th colspan="4" class="text-center w3-medium w3-text-red">
+<<<<<<< HEAD
                                 <b> No Task(s) Completed Yet </b>
+=======
+                                <b> No Tasks Completed Yet </b>
+>>>>>>> 41471d1b650a1ee710e9ce37dedf4dcb9f69fdaa
                             </th>
                         </tr>
                     @endif
