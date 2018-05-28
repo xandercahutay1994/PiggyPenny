@@ -4,7 +4,6 @@
         position:relative
     }
 
-
     #notificationContainer 
     {
         background-color: #fff;
@@ -80,11 +79,11 @@
     <!-- LOGO  -->
     <img class="img-responsive" alt="Responsive image" width="200" src="{{ asset('img/piggypenny.png') }}">  
     
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"s>
         <span class="navbar-toggler-icon w3-black" style="padding: 2px;">☰</span>
 
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="overflow-x: auto">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
     
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav mr-auto">
@@ -179,7 +178,6 @@
                 toastr.error("Can't load data from server"); 
             }
         });
-
 
         $("#notificationLink").click(function(){
             $("#notificationContainer").fadeToggle(300);

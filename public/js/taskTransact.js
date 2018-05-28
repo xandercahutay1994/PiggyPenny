@@ -59,8 +59,10 @@ $(document).ready(function(){
 			count = 1;
 		}
 		if(count == 0){
-			$('#create').modal('show');
-			e.preventDefault();
+        	$('.loader').fadeIn(5000,function(){
+				$('.loader').fadeOut();
+				$('#create').modal('show');
+        	});
 		}
 	});
 
@@ -110,6 +112,10 @@ $(document).ready(function(){
         });	
 	});
 
+	$('#next').on('click',function(){
+        // setTimeout(function(){
+        // },3500);
+	});
 	// ============================
 	// POST data to COINS.PH API
 	// ============================
@@ -127,8 +133,8 @@ $(document).ready(function(){
 	// 	  	contentType: "application/json",
 	// 	  	data: JSON.stringify({
 	// 			"payer_contact_info" :  $('#e_phone').val(), 
-	// 	  		"receiving_account" : '', 
-	// 	  		"amount" : parseInt($('#hiddenpayment').val()), 
+	// 	  		"receiving_account" : 'd15da1de02704f069e204728d377b842', 
+	// 	  		"amount" : $('#hiddenpayment').val(), 
 	// 	  		"message" : "Piggypenny sent you a payment request for the task you requested to post" + $('#photoName').val()
 	// 		}),
 	// 	  	success: function(response){

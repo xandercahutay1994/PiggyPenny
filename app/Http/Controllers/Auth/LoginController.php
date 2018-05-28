@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     public function login(Request $request){
 
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember) && Auth::attempt(['status' => '0'], $request->remember)){
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password,'status' => '0'], $request->remember)){
             return redirect()->intended(route('dashboard'));
         }else{
             return back()->with('userError','These credentials do not match our records');

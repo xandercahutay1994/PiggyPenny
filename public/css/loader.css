@@ -1,0 +1,8 @@
+.loader{
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    right: 0; 
+    left: 0;
+    overflow: show;
+}

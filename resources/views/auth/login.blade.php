@@ -27,16 +27,6 @@
                                 </div>
                             </div>
 
-                          <!--   <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div> -->
-
                             <!-- LOG-IN BUTTON  -->
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

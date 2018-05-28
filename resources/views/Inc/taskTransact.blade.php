@@ -1,3 +1,7 @@
+				<link rel="stylesheet" href="{{ asset('css/loader.css') }}">
+        		<div class="loader" style="display: none;">
+					<img src="{{ asset('loader/loader13.gif') }}">
+				</div>
         		<p class="text-center">Please select your desired payment currency:</p>
 	            <div class="row" style="margin-left: 500px;">
 	            	<div class="span12 pagination-centered">
@@ -33,3 +37,5 @@
 	    	           		<!-- {{ csrf_field() }} -->
 			            </div>
 	   		   	
+
+	

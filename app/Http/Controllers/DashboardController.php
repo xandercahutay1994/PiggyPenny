@@ -43,7 +43,7 @@ class DashboardController extends Controller
                         ->join('tasks', 'business_tasks.task_id', '=', 'tasks.task_id')
                         ->where('payments.payment_status', '=', '1')
                         ->whereColumn('currentViews', '<', 'totalViews')
-                        ->select('business_tasks.taskName','business_tasks.currentViews','business_tasks.totalViews','tasks.task_type')
+                        ->select('business_tasks.taskName','business_tasks.currentViews','business_tasks.totalViews','tasks.task_type','business_tasks.btask_id','business_tasks.task_id','business_tasks.taskMedia')
                         ->where('business_tasks.id', '=', $id)
                         ->orderBy('business_tasks.notified_at','desc')
                         ->paginate(10); 

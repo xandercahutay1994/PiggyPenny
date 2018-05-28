@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Models\Task;
 use App\Models\Business;
 use App\Models\Payment;
@@ -122,11 +123,21 @@ class AdminController extends Controller
       return view('Admin.AdminTaskListManagement')->with(array('task_list' => $task_list, 'title' => $title));
     }
 
-    public function approved_task($bTask_id){
+    public function approved_task($bTask_id,$price){
+        $earnings = $price;
+         // $earnings;
+        $deducted_price = $earnings / 2;
+
+        $pennyer_payments = round($deducted_price,9);
+        $piggypenny_earnings = round($deducted_price,9);
+
         $user_paymentStat = DB::table('payments')
             ->where('btask_id',  $bTask_id)
             ->update([
-                'payment_status' => '1'
+                'payment_status' => '1',
+                'pennyer_payments' => $pennyer_payments,
+                'piggypenny_earnings' => $piggypenny_earnings,
+                'paid_at' => \Carbon\Carbon::now()
             ]);    
 
         $user_notifyStat = DB::table('business_tasks')

@@ -10,7 +10,7 @@
 	text-decoration: none
 }
 </style>
-	<div class="container"> 
+	<div class="container" id="page"> 
 		<div style="margin-top: 70px;">
 			<div class="form-group row">
 			    <label for="target_views" class="col-sm-4 offset-md-4 col-form-label">&nbsp Set your target views:</label>
@@ -76,6 +76,7 @@
 	    </div>
 	</div>
 {!! Form::close() !!}    
+
 <script type="text/javascript">
 	// d15da1de02704f069e204728d377b842
 </script>

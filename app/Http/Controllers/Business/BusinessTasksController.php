@@ -32,8 +32,7 @@ class BusinessTasksController extends Controller
 
     public function indexApp($id,$appName,Request $request){
         $business_id = Auth::user()->id;
-        $url = $request->input('applink');
-        $applink = Session::get('applink', $url);
+        $applink = $request->input('applink');
         return View('User.AppAdTransact')->with(array('task_id' =>$id, 'business_id' => $business_id, 'appName' => $appName, 'applink' => $applink));
     }
 
@@ -80,15 +79,16 @@ class BusinessTasksController extends Controller
         $taskname = $request->input('appname');
         $applink = $request->input('applink');
         // $link = Session::get('applink', $url);
-        return redirect()->route('appAdTransact', ['task_id' => $task_id, 'taskname' => $taskname])->with('applink',$applink);
+        // return redirect()->route('appAdTransact', ['task_id' => $task_id, 'taskname' => $taskname])->with('applink',$applink);
+        return redirect()->route('appAdTransact', ['task_id' => $task_id, 'taskname' => $taskname, 'applink' => urlencode($applink)]);
+        
     }
 
     public function surveyUpload(Request $request){
         $task_id = $request->input('task_id');
         $taskname = $request->input('surveyname');
-        $url = $request->input('survey');
-        $link = Session::get('link', $url);
-        return redirect()->route('surveyAdTransact', ['task_id' => $task_id, 'taskname' => $taskname])->with('link',$link);
+        $link = $request->input('survey');
+        return redirect()->route('surveyAdTransact', ['task_id' => $task_id, 'taskname' => $taskname, 'link' => urlencode($link)]);
     }
 
     

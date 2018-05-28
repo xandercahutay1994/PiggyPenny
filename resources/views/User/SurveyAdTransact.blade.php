@@ -33,7 +33,7 @@
 	<!--  HIDDEN INPUTS  -->
 	<input type="hidden" id="hiddenpayment" name="hiddenpayment" value="hiddenpayment">
 	<input type="hidden" id="hidden_target" name="hidden_target" value="">
-	<input type="hidden" name="link" value="{{$link}}">
+	<input type="text" name="link" value="{{$link}}">
 	<input type="hidden" name="surveyName" value="{{$surveyName}}">
 	<input type="hidden" id="currency" name="currency" value="currency">
 	<input type="hidden" name="task_id" value="{{$task_id}}">

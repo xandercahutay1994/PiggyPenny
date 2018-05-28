@@ -38,21 +38,35 @@
     <link rel="stylesheet" href="{{ asset('css/my_css.css') }}">
 </head>
 <style>
-    .footer_wrapper {  
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html,body{
+        height: 100%;
+    }
+    #container{
+        min-height: 100%;
+    }
+    #main{
+        overflow: auto;
+        padding-bottom: 40px;
+    }
+
+    #footer{
         position: relative;
-        width:100%;
-        background-color:#6a7a96;
-        margin: auto;
+        background-color: #6a7a96;
+        height: 100px;
+        margin-top: -100px;
         text-align: center;
         vertical-align: middle;
-        line-height: 50px;
-        margin-bottom:20px;    
+        line-height: 100px;
+        clear: both;
     }
-    .footer_wrapper.fixed {bottom:-20px;position: fixed;
-    }
+     
 </style>
 <body>
-    <div style="width: 1350px;margin:auto"> 
+    <div id="container" style="width: 90%;margin: auto;"> 
         @include('Inc.adminNavigation')
         <span>
             @include('Inc.messages')
@@ -62,21 +76,12 @@
         </div>  
         <br><br>
     </div>
-<br><br>
-<div class="Page"> 
-    <div class="footer_wrapper" >
+    <br><br><br>
+    <footer id="footer">
         <?php $timestemp = today();
            $year = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $timestemp)->year;
         ?>
         Copyright <i class="far fa-copyright"></i> <?= $year ?>. All Rights Reserved 
-    </div>
-</div>  
-<script type="text/javascript">
-    if ($(".Page").height()<$(window).height()){
-        $(".footer_wrapper").addClass("fixed");
-    }else{
-        $(".footer_wrapper").removeClass("fixed");
-    }
-</script>
+    </footer>
 </body>
 </html>

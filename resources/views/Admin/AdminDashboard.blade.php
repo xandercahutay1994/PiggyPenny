@@ -1,10 +1,14 @@
 @extends('layouts.adminLayout')
 
 @section('content')
-<!-- CSS STYLE EXTENSION -->
-<link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-    
-    <!-- Sidebar style="display:none"-->
+    <!-- CSS STYLE EXTENSION -->
+    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+    <!-- LOADER -->
+    <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
+    <div class="loader" style="top: 35%;">
+        <img src="{{ asset('loader/loader3.gif') }}">
+    </div>
+    <!-- Sidebar -->
     <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
         <button id="sidebar2" onclick="w3_close()" class="btn btn-default w3-black">&times</button>
         <span class="w3-circle">
@@ -16,17 +20,21 @@
             <p>&nbsp  Task Completed : <span class="badge"> {{ $task_completed->count()}} </span></p>  
             <p>&nbsp Task Pending : <span class="badge"> {{ $task_pending->count()}} </span></p>    
         </div>
-        
     </div>
 
     <!-- Page Content -->
-    <div style="overflow-x:auto;">
-        <!-- 
-            PROMOTER'S ACCOUNT DETAILS TABLE
-         -->
+    <div>
+        <!-- PROMOTER'S ACCOUNT DETAILS TABLE -->
         &nbsp <button id="sidebar" class="w3-large btn btn-default" onclick="w3_open()"> ☰ </button>
-        <div class="w3-container">
-            <table class="table table1" style="margin-left: 265px;width: 62%;margin: auto;">
+        <br>
+        <div class="w3-container offset-md-1 contentTable table-responsive" style="width: 75%;overflow-x: auto;display: none;">
+            <h2 class="w3-text-blue">ADMIN | DASHBOARD</h2>
+            <div class="offset-md-8 table-bordered w3-khaki text-center" style="position: fixed;height: 17%;width: 15%;margin-top: -38px;">
+                <h4 style="padding: 4px;color: green"> TOTAL EARNINGS </h4>
+                <p class="w3-text-red">Peso: 5000 </p>
+                <p class="w3-text-red"> Btc: 0.005320</p>
+            </div>
+            <table class="table table1">
                 <thead style="background-color: #c6c6d1">
                     <th colspan="6" class="w3-large w3-round-medium" style="font-family: Arial;">Promoter's Account Details 
                         <label><span id="searching" style="margin-left: 240px;"></span></label>
@@ -77,7 +85,6 @@
                                 @if($value->status == 0 || $value->status == '')
                                     <button  class="deActModal btn btn-warning btn-sm" role="button" data-id="{{ $value->id }}" data-toggle="modal" data-target="#deactivate{{ $value->id }}">
                                         <i class='fas fa-ban w3-text-red'></i> Deactivate
-                                        <!-- <input type="text" value="{{$value->id}}" name="" id="user_id"> -->
                                     </button>
                                 @else
                                     <button class='actModal btn btn-success btn-sm' style='width: 97px;' data-id="{{ $value->id }}" data-toggle="modal" data-target="#activate{{ $value->id }}">
@@ -163,7 +170,7 @@
             <!-- 
                 USER'S ACCOUNT DETAILS TABLE
              -->
-            <table class="table table2" style="margin-left: 265px;width: 62%;margin: auto;">
+            <table class="table table2 ta">
                 <thead style="background-color: #c6c6d1">
                     <th colspan="4" class="w3-large w3-round-medium" style="font-family: Arial;">Piggypennyer's Account Details 
                         <div class="search">
@@ -186,7 +193,8 @@
             </table>
         </div>
     </div>
-   
+
+<script src="{{ asset('js/loader.js') }}"></script>
 <script>
     function w3_open() {
         document.getElementById("mySidebar").style.display = "block";
@@ -210,14 +218,10 @@
             this.form.submit();
             this.innerHTML='<i class="fa fa-spinner fa-spin"></i> Loading…';
         });
-
-        // $('#yes2').on('click',function(){
-        //     this.form.submit();
-        //     this.innerHTML='<i class="fa fa-spinner fa-spin"></i> Loading…';
-        // });
     });
-
     $(document).ready(function(){
+        
+        
         // $('#searchName').keyup(function(){
         //     var search = $('#searchName').val();
         //     var searching = $('#searching').val();

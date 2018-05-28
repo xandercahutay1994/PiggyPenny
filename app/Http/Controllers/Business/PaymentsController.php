@@ -42,18 +42,14 @@ class PaymentsController extends Controller
         $bTask->taskMedia =   $filenameToStore;
         $bTask->totalViews = $tViews;
         $bTask->currentViews = 0;
-        $bTask->totalPrice = $earnings;
+        $bTask->totalPrice = round($earnings,9);
 
         //getting the maximum BTASK_ID FROM BUSINESS TASK
         $max_bTaskId = DB::table('business_tasks')->max('btask_id')+1;
 
-        $deducted_price = $earnings / 2;
-
         $payment->btask_id =  $max_bTaskId;
         $payment->payment_status = '0';
         $payment->payment_type =   $pType;
-        $payment->pennyer_payments = $deducted_price;
-        $payment->piggypenny_earnings = $deducted_price;
             
         if($payment->save() && $bTask->save()){
             return redirect('/photoAd/' . $task_id)->with('flash','Success');
@@ -64,12 +60,6 @@ class PaymentsController extends Controller
     }
 
     public function storeVideo(Request $request){
-
-        // $this->validate($request, [
-        //     'target_views' => 'required',
-        //     'bitcoin_address' => 'required'
-        // ]);
-
         // instantiate Business Task so that I can call it to this controller
         $bTask = new BusinessTask;
         $business_id = auth()->user()->id;
@@ -85,11 +75,6 @@ class PaymentsController extends Controller
         $taskname = $request->input('videoName');
   
         $filename = pathinfo($video, PATHINFO_FILENAME);
-
-        // $filenameToStore = $filename . '_' . time();
-        // $filenameToStore = $business_id . '/' . $task_id . '/' .  $taskname . '/' .  $filename . '_' . time();
-        // $path = $request->input('videoName')->storeAs('public/video',$filenameToStore);
-
         $filenameToStore = $business_id.'-'.$task_id.'-'.$filename.'.'.$extension;
         $path = Storage::move('public/tempPic/' . $filenameToStore, 'public/videos/' . $filenameToStore);      
 
@@ -100,21 +85,16 @@ class PaymentsController extends Controller
         $bTask->taskMedia =   $filenameToStore;
         $bTask->totalViews = $tViews;
         $bTask->currentViews = 0;
-        $bTask->totalPrice = $earnings;
+        $bTask->totalPrice = round($earnings,9);
 
         //getting the deduct
         $max_bTaskId = DB::table('business_tasks')->max('btask_id')+1;
 
-        $deducted_price = $earnings / 2;
-
         $payment->btask_id =  $max_bTaskId;
         $payment->payment_status = '0';
         $payment->payment_type =   $pType;
-        $payment->pennyer_payments = $deducted_price;
-        $payment->piggypenny_earnings = $deducted_price;
             
         if($payment->save() && $bTask->save()){
-
             return redirect('/videoAd/' . $task_id)->with('flash','Success');
             // return redirect()->route('finalTransact', ['task_id' => $task_id]);
         }else{
@@ -123,12 +103,6 @@ class PaymentsController extends Controller
     }
 
     public function storeApp(Request $request){
-
-        // $this->validate($request, [
-        //     'target_views' => 'required',
-        //     'bitcoin_address' => 'required'
-        // ]);
-
         // instantiate Business Task so that I can call it to this controller
         $bTask = new BusinessTask;
         $business_id = auth()->user()->id;
@@ -151,19 +125,14 @@ class PaymentsController extends Controller
         $bTask->taskMedia =   $link;
         $bTask->totalViews = $tViews;
         $bTask->currentViews = 0;
-        
-        $bTask->totalPrice = $earnings;
+        $bTask->totalPrice = round($earnings, 9);
 
         //getting the maximum BTASK_ID FROM BUSINESS TASK
         $max_bTaskId = DB::table('business_tasks')->max('btask_id')+1;
         
-        $deducted_price = $earnings / 2;
-
         $payment->bTask_id =  $max_bTaskId;
         $payment->payment_status = '0';
         $payment->payment_type =   $pType;
-        $payment->pennyer_payments = $deducted_price;
-        $payment->piggypenny_earnings = $deducted_price;
             
         if($payment->save() && $bTask->save()){
 
@@ -203,23 +172,18 @@ class PaymentsController extends Controller
         $bTask->taskMedia =   $link;
         $bTask->totalViews = $tViews;
         $bTask->currentViews = 0;
-        $bTask->totalPrice = $earnings;
+        $bTask->totalPrice = round($earnings,9);
 
         //getting the maximum BTASK_ID FROM BUSINESS TASK
         $max_bTaskId = DB::table('business_tasks')->max('btask_id')+1;
         
-        $deducted_price = $earnings / 2;
-
         $payment->bTask_id =  $max_bTaskId;
         $payment->payment_status = '0';
         $payment->payment_type =   $pType;
-        $payment->pennyer_payments = $deducted_price;
-        $payment->piggypenny_earnings = $deducted_price;
             
         if($payment->save() && $bTask->save()){
 
             return redirect('/surveyAd/' . $task_id)->with('flash','Success');
-            // return redirect()->route('finalTransact', ['task_id' => $task_id]);
         }else{
            Session::flash('error', 'Error saving');
         }

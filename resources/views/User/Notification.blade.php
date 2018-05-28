@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div style="margin-top: 25px;">
+<style type="text/css">
+    #notify{
+        display: none;
+    }
+</style>
+<link rel="stylesheet" href="{{ asset('css/loader.css') }}">
+<div class="loader" style="display: none;margin-top: 100px;">
+    <img src="{{ asset('loader/loader11.gif') }}">
+</div>
+
+<div style="margin-top: 25px;" id="notify">
 	<a href="{{ url('dashboard/' .  Auth::user()->id) }}" class="btn btn-primary offset-md-9">
         Go To Dashboard
     </a>
@@ -40,4 +50,12 @@
     <span class="w3-right btn-sm" style="margin: -25px 740px; "> {{ $read_All->links() }} </span>
     <!-- END OF PAGINATION -->
 </div>
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('.loader').fadeIn(4000,function(){
+            $('.loader').fadeOut();
+            $('#notify').show();
+        });
+    })
+</script>
 @endsection

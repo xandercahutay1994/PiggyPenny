@@ -20,7 +20,8 @@ class CreatePaymentsTable extends Migration
             $table->string('payment_type');
             $table->string('pennyer_payments')->nullable();
             $table->string('piggypenny_earnings')->nullable();
-            $table->timestamp('paid_at')->useCurrent();
+            // $table->timestamp('paid_at')->useCurrent();
+            $table->dateTime('paid_at')->nullable();
         });
     }
 

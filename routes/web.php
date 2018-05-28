@@ -74,7 +74,7 @@ Route::get('pendingTaskCompleteLists', ['as' => 'pendingTaskCompleteLists', 'use
 Route::get('tasksList', ['as' => 'tasksList', 'uses' => 'AdminController@tasksList']);
 
 // Task Approved Notification
-Route::get('approved_task/{btask_id}','AdminController@approved_task');
+Route::get('approved_task/{btask_id}/{price}','AdminController@approved_task');
 Route::get('delete_task/{btask_id}','AdminController@delete_task');
 
 Route::get('notifyAdmin_requestPost', ['as' => 'notifyAdmin_requestPost', 'uses' => 'AdminController@notifyAdmin_requestPost']);

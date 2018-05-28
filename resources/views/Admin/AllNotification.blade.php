@@ -11,6 +11,10 @@
         border: 1px solid #ddd;
     }
 </style>
+    <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
+    <div class="loader" style="margin-top: 10%;">
+        <img src="{{ asset('loader/loader3.gif') }}">
+    </div>
     <!-- Sidebar style="display:none"-->
     <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
         <button id="sidebar2" onclick="w3_close()" class="btn btn-default w3-black">&times</button>
@@ -28,7 +32,7 @@
     <!-- Page Content -->
     <div>
         &nbsp <button id="sidebar" class="w3-large btn btn-default" onclick="w3_open()"> ☰ </button>
-        <div class="w3-container" style="overflow-x:auto;margin: auto">
+        <div class="w3-container contentTable table-responsive" style="overflow-x:auto;margin: auto;display: none;">
             <b style="margin: 260px;font-family: sans-serif;" class="w3-xlarge"></b>
             <a href="{{ url('admin') }}" class="btn btn-primary offset-md-4">
                 Go To Dashboard
@@ -69,7 +73,8 @@
             <!-- END OF PAGINATION -->
         </div>
     </div>
-   
+
+<script src="{{ asset('js/loader.js') }}"></script>
 <script>
     function w3_open() {
         document.getElementById("mySidebar").style.display = "block";
@@ -79,14 +84,15 @@
     }
 
     $(document).ready(function(){
-	    $('#yes').on('click',function(){
-	        this.innerHTML='<i class="fa fa-spinner fa-spin"></i> Loading…';
-	    });
+	    // $('#yes').on('click',function(){
+	    //     this.innerHTML='<i class="fa fa-spinner fa-spin"></i> Loading…';
+	    // });
 
-	    $('.approveModal').on('click',function(){
-	        $('#approve').modal('show');
-	        $('.form-horizontal').show();
-	    });
+	    // $('.approveModal').on('click',function(){
+	    //     $('#approve').modal('show');
+	    //     $('.form-horizontal').show();
+	    // });
+        
 
 	    // $.ajax({
 	    // 	url: ''

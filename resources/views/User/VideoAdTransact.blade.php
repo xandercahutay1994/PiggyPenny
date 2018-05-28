@@ -9,6 +9,7 @@
 	text-decoration: none
 }
 </style>
+<link rel="stylesheet" href="{{ asset('css/loader.css') }}">
 	<div class="container"> 
 		<div style="margin-top: 70px;">
 			<div class="form-group row">
@@ -26,7 +27,6 @@
 						</a>
 	           	   </div>
 	            </div>
-
         	</div>
 	    </div>
 	</div>

@@ -1,8 +1,13 @@
 @extends('layouts.adminLayout')
 
 @section('content')
-<!-- CSS STYLE EXTENSION -->
-<link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+    <!-- CSS STYLE EXTENSION -->
+    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+    <!-- LOADER -->
+    <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
+    <div class="loader" style="top: 35%;">
+        <img src="{{ asset('loader/loader3.gif') }}">
+    </div>
 
     <!-- Sidebar style="display:none"-->
     <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
@@ -20,17 +25,16 @@
     </div>
     <!-- Page Content -->
     <div>
-        <!-- 
-            PENDING TASKS TABLE
-        -->
+        <!-- PENDING TASKS TABLE-->
         &nbsp <button id="sidebar" class="w3-large btn btn-default" onclick="w3_open()"> ☰ </button>
-        <div class="w3-container" style="overflow-x:auto;">
-            <b style="margin: 260px;font-family: sans-serif;" class="w3-xlarge w3-text-green">{{$title}}</b>
-            <a href="{{ url('pendingTaskCompleteLists') }}" class="btn btn-primary offset-md-3">
+        <br><br><br>
+        <div class="w3-container offset-md-2 contentTable" style="overflow-x:auto;display: none;">
+            <b style="font-family: sans-serif;" class="w3-xlarge w3-text-green">{{$title}}</b>
+            <a href="{{ url('pendingTaskCompleteLists') }}" class="btn btn-primary w3-right">
                 Back
             </a>
             <br><br>
-            <table class="table table1 responsive" style="margin-left: 265px;width: 72%;">
+            <table class="table">
                 <thead style="background-color: #c6c6d1">
                     <th colspan="8" class="w3-large w3-round-medium" style="font-family: Arial;">Tasks List 
                         <div class="search">
@@ -87,7 +91,8 @@
             <br><br>
         </div>
     </div>
-   
+
+<script src="{{ asset('js/loader.js') }}"></script>
 <script>
     function w3_open() {
         document.getElementById("mySidebar").style.display = "block";
